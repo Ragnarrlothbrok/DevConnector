@@ -11,6 +11,6 @@ let devTools =
 const store = createStore(
   rootReducer,
   initialState,
-  composeWithDevTools(applyMiddleware(...middleware), devTools)
+  compose(applyMiddleware(...middleware))
 );
 export default store;
