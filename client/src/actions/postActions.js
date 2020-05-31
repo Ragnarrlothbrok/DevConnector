@@ -13,7 +13,7 @@ import {
 export const addPost = (postData) => (dispatch) => {
   dispatch(clearErrors());
   axios
-    .post("http://localhost:5000/api/posts", postData, { mode: cors })
+    .post("/api/posts", postData, { mode: cors })
     .then((res) =>
       dispatch({
         type: ADD_POST,
@@ -31,7 +31,7 @@ export const addPost = (postData) => (dispatch) => {
 export const getPosts = () => (dispatch) => {
   dispatch(setPostLoading());
   axios
-    .get("http://localhost:5000/api/posts", { mode: cors })
+    .get("/api/posts", { mode: cors })
     .then((res) =>
       dispatch({
         type: GET_POSTS,
@@ -48,7 +48,7 @@ export const getPosts = () => (dispatch) => {
 
 export const deletePost = (id) => (dispatch) => {
   axios
-    .delete(`http://localhost:5000/api/posts/${id}`, { mode: cors })
+    .delete(`/api/posts/${id}`, { mode: cors })
     .then((res) =>
       dispatch({
         type: DELETE_POST,
@@ -65,7 +65,7 @@ export const deletePost = (id) => (dispatch) => {
 
 export const addLike = (id) => (dispatch) => {
   axios
-    .post(`http://localhost:5000/api/posts/like/${id}`, { mode: cors })
+    .post(`/api/posts/like/${id}`, { mode: cors })
     .then((res) => dispatch(getPosts()))
     .catch((err) =>
       dispatch({
@@ -77,7 +77,7 @@ export const addLike = (id) => (dispatch) => {
 
 export const removeLike = (id) => (dispatch) => {
   axios
-    .post(`http://localhost:5000/api/posts/unlike/${id}`, { mode: cors })
+    .post(`/api/posts/unlike/${id}`, { mode: cors })
     .then((res) => dispatch(getPosts()))
     .catch((err) =>
       dispatch({
@@ -90,7 +90,7 @@ export const removeLike = (id) => (dispatch) => {
 export const getPost = (id) => (dispatch) => {
   dispatch(setPostLoading());
   axios
-    .get(`http://localhost:5000/api/posts/${id}`, { mode: cors })
+    .get(`/api/posts/${id}`, { mode: cors })
     .then((res) =>
       dispatch({
         type: GET_POST,
@@ -108,7 +108,7 @@ export const getPost = (id) => (dispatch) => {
 export const addComment = (postId, commentData) => (dispatch) => {
   dispatch(clearErrors());
   axios
-    .post(`http://localhost:5000/api/posts/comment/${postId}`, commentData, {
+    .post(`/api/posts/comment/${postId}`, commentData, {
       mode: cors,
     })
     .then((res) =>
@@ -127,7 +127,7 @@ export const addComment = (postId, commentData) => (dispatch) => {
 
 export const deleteComment = (postId, commentId) => (dispatch) => {
   axios
-    .delete(`http://localhost:5000/api/posts/comment/${postId}/${commentId}`, {
+    .delete(`/api/posts/comment/${postId}/${commentId}`, {
       mode: cors,
     })
     .then((res) =>

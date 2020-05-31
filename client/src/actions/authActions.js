@@ -6,7 +6,7 @@ import jwt_decode from "jwt-decode";
 
 export const registerUser = (userData, history) => (dispatch) => {
   axios
-    .post("http://localhost:5000/api/users/register", userData, { mode: cors })
+    .post("/api/users/register", userData, { mode: cors })
     .then((res) => history.push("/login"))
     .catch((err) => {
       dispatch({
@@ -19,7 +19,7 @@ export const registerUser = (userData, history) => (dispatch) => {
 //login user
 export const loginUser = (userData) => (dispatch) => {
   axios
-    .post("http://localhost:5000/api/users/login", userData, { mode: cors })
+    .post("/api/users/login", userData, { mode: cors })
     .then((res) => {
       const { token } = res.data;
       localStorage.setItem("jwtToken", token);

@@ -14,7 +14,7 @@ import cors from "cors";
 export const getCurrentProfile = () => (dispatch) => {
   dispatch(setProfileLoading());
   axios
-    .get("http://localhost:5000/api/profile", { mode: cors })
+    .get("/api/profile", { mode: cors })
     .then((res) =>
       dispatch({
         type: GET_PROFILE,
@@ -32,7 +32,7 @@ export const getCurrentProfile = () => (dispatch) => {
 //create profile
 export const createProfile = (profileData, history) => (dispatch) => {
   axios
-    .post("http://localhost:5000/api/profile", profileData, { mode: cors })
+    .post("/api/profile", profileData, { mode: cors })
     .then((res) => history.push("/dashboard"))
     .catch((err) =>
       dispatch({
@@ -46,7 +46,7 @@ export const createProfile = (profileData, history) => (dispatch) => {
 export const deleteAccount = () => (dispatch) => {
   if (window.confirm("Are you sure? This cannot be undone!")) {
     axios
-      .delete("http://localhost:5000/api/profile", { mode: cors })
+      .delete("/api/profile", { mode: cors })
       .then((res) =>
         dispatch({
           type: SET_CURRENT_USER,
@@ -65,7 +65,7 @@ export const deleteAccount = () => (dispatch) => {
 //add exp
 export const addExperience = (expData, history) => (dispatch) => {
   axios
-    .post("http://localhost:5000/api/profile/experience", expData, {
+    .post("/api/profile/experience", expData, {
       mode: cors,
     })
     .then((res) => history.push("/dashboard"))
@@ -79,7 +79,7 @@ export const addExperience = (expData, history) => (dispatch) => {
 
 export const addEducation = (eduData, history) => (dispatch) => {
   axios
-    .post("http://localhost:5000/api/profile/education", eduData, {
+    .post("/api/profile/education", eduData, {
       mode: cors,
     })
     .then((res) => history.push("/dashboard"))
@@ -94,7 +94,7 @@ export const addEducation = (eduData, history) => (dispatch) => {
 //delete experience
 export const deleteExperience = (id) => (dispatch) => {
   axios
-    .delete(`http://localhost:5000/api/profile/experience/${id}`, {
+    .delete(`/api/profile/experience/${id}`, {
       mode: cors,
     })
     .then((res) =>
@@ -114,7 +114,7 @@ export const deleteExperience = (id) => (dispatch) => {
 //d education
 export const deleteEducation = (id) => (dispatch) => {
   axios
-    .delete(`http://localhost:5000/api/profile/education/${id}`, {
+    .delete(`/api/profile/education/${id}`, {
       mode: cors,
     })
     .then((res) =>
@@ -134,7 +134,7 @@ export const deleteEducation = (id) => (dispatch) => {
 export const getProfiles = () => (dispatch) => {
   dispatch(setProfileLoading());
   axios
-    .get("http://localhost:5000/api/profile/all", { mode: cors })
+    .get("/api/profile/all", { mode: cors })
     .then((res) =>
       dispatch({
         type: GET_PROFILES,
@@ -152,7 +152,7 @@ export const getProfiles = () => (dispatch) => {
 export const getProfileByHandle = (handle) => (dispatch) => {
   dispatch(setProfileLoading());
   axios
-    .get(`http://localhost:5000/api/profile/handle/${handle}`, { mode: cors })
+    .get(`/api/profile/handle/${handle}`, { mode: cors })
     .then((res) =>
       dispatch({
         type: GET_PROFILE,
