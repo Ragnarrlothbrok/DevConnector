@@ -26,7 +26,7 @@ class PostForm extends Component {
     this.props.addPost(newPost);
     this.setState({ text: "" });
   }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }

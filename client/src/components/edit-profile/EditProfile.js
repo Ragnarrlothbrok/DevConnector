@@ -64,7 +64,7 @@ class CreateProfile extends Component {
   // btntoggle(e) {
 
   // }
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
